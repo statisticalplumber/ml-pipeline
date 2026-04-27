@@ -1,0 +1,55 @@
+[automl]
+# Time limit in seconds for the entire optimization process
+time_limit = 300
+
+# Number of hyperparameter optimization trials
+n_trials = 50
+
+# Number of cross-validation folds
+cv_folds = 5
+
+# Random seed for reproducibility
+random_seed = 42
+
+[automl.preprocessing]
+# Handle missing values: 'drop', 'mean', 'median', 'most_frequent'
+missing_strategy = "median"
+# Encode categorical variables: 'onehot', 'ordinal', 'label'
+categorical_encoding = "onehot"
+# Scale numerical features: 'standard', 'minmax', 'robust'
+numerical_scaling = "standard"
+# Remove outliers using IQR method (multiplier for IQR bounds)
+outlier_iqr_multiplier = 1.5
+
+[automl.feature_engineering]
+# Create polynomial features (degree 2 or 3)
+polynomial_features = true
+polynomial_degree = 2
+# Create interaction features
+interaction_features = false
+# Feature selection method: 'mutual_info', 'select_k_best', 'select_percentile', 'rfe'
+feature_selection_method = "mutual_info"
+# Number of top features to select (-1 for all)
+n_features_to_select = -1
+
+[automl.models]
+# Models to include in the search space
+include_linear = true
+include_tree = true
+include_svm = false
+include_ensemble = true
+include_neural_network = false
+
+[automl.optimization]
+# Optimization direction: 'minimize' or 'maximize'
+direction = "minimize"
+# Sampler for Optuna: 'tpe', 'cmaes', 'grid'
+sampler = "tpe"
+# Study name for logging
+study_name = "automl_study"
+
+[automl.evaluation]
+# Primary metric for model selection
+primary_metric = "accuracy"
+# Additional metrics to report
+additional_metrics = ["precision", "recall", "f1", "roc_auc", "log_loss"]
