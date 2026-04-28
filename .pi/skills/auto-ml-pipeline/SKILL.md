@@ -1,6 +1,6 @@
 ---
 name: auto-ml-pipeline
-description: Automated machine learning pipeline for tabular data. Full lifecycle: preprocessing, feature engineering, model selection, hyperparameter tuning, evaluation, and export.
+description: "Automated machine learning pipeline for tabular data. Full lifecycle: preprocessing, feature engineering, model selection, hyperparameter tuning, evaluation, and export."
 version: 1.0.0
 ---
 
